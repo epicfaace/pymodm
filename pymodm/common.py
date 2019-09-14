@@ -96,12 +96,6 @@ def validate_mongo_field_name(option, value):
     validate_string(option, value)
     if value == '':
         return value
-    if value[0] == '$':
-        raise ValueError('%s cannot start with the dollar sign ($) '
-                         'character, %r.' % (option, value))
-    if '.' in value:
-        raise ValueError('%s cannot contain the dot (.) character, %r.'
-                         % (option, value))
     if '\x00' in value:
         raise ValueError('%s cannot contain the null character, %r.'
                          % (option, value))
